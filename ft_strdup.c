@@ -5,24 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/03 16:37:50 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/10 14:10:07 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/24 15:27:27 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/24 15:27:28 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(const char *src)
 {
-	char	*des;
-	int		a;
-
-	if (!(des = (char *)malloc(sizeof(*s) * (ft_strlen(s) + 1))))
+	if (!src)
+	{
+		ft_error(WRONG_PARAMS);
 		return (0);
-	a = -1;
-	while (s[++a])
-		des[a] = s[a];
-	des[a] = '\0';
-	return (des);
+	}
+	return (ft_strcpy(ft_strnew(ft_strlen(src)), src));
 }

@@ -5,29 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/28 20:30:16 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/28 20:30:17 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/24 11:42:53 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/24 11:42:54 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *des, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t n)
 {
-	size_t	a;
-	size_t	b;
+	size_t	i;
 
-	a = 0;
-	b = 0;
-	while (des[a])
-		a++;
-	if (size <= a)
-		return (size + ft_strlen(src));
-	while (a + b < size - 1 && src[b])
+	i = ft_strlen(dst) + ft_strlen(src);
+	if (!dst || !src)
 	{
-		des[a + b] = src[b];
-		b++;
+		ft_error(WRONG_PARAMS);
+		return (0);
 	}
-	des[a + b] = '\0';
-	return (a + ft_strlen(src));
+	if (!n || ft_strlen(dst) > n)
+		return (n + ft_strlen(src));
+	ft_strlcpy(dst + ft_strlen(dst), src, n - ft_strlen(dst));
+	return (i);
 }

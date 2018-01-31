@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/18 16:02:49 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/18 16:03:10 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/24 11:16:01 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/24 11:16:02 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isdigit(int a)
+#include "libft.h"
+
+int		ft_isdigit(int c)
 {
-	if (a >= 48 && a <= 57)
-		return (1);
-	return (0);
+	return (ft_isbetween(c, '0', '9'));
 }

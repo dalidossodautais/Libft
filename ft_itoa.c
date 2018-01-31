@@ -3,50 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlereffa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/23 21:28:31 by jlereffa          #+#    #+#             */
-/*   Updated: 2016/11/23 21:28:38 by jlereffa         ###   ########.fr       */
+/*   Created: 2018/01/29 11:09:05 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/29 11:09:07 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-static	void	ft_negative(int *n, int *negative_case)
+char	*ft_itoa(int nb)
 {
-	if (*n < 0)
-	{
-		*n *= -1;
-		*negative_case = 1;
-	}
-}
+	size_t	i;
+	char	*str;
 
-char			*ft_itoa(int n)
-{
-	int		a;
-	int		tmp;
-	int		negative_case;
-	char	*s;
-
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	a = 2;
-	tmp = n;
-	negative_case = 0;
-	ft_negative(&n, &negative_case);
-	while (tmp /= 10)
-		a++;
-	a = a + negative_case;
-	if (!(s = (char*)malloc(sizeof(char) * a)))
+	if (!(str = ft_strnew(ft_ilen(nb))))
 		return (NULL);
-	s[--a] = '\0';
-	while (a--)
+	if (nb < 0)
+		str[0] = '-';
+	i = ft_ilen(nb);
+	while (i-- && (nb >= 10 || nb <= -10))
 	{
-		s[a] = n % 10 + '0';
-		n = n / 10;
+		str[i] = ft_absolute(nb % 10) + '0';
+		nb /= 10;
 	}
-	if (negative_case)
-		s[0] = '-';
-	return (s);
+	str[i] = ft_absolute(nb) + '0';
+	return (str);
 }

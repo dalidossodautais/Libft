@@ -5,18 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/27 05:32:47 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/27 05:32:49 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/29 11:25:51 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/29 11:25:52 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 void	ft_memdel(void **ap)
 {
-	if (ap && *ap)
+	if (!ap || !*ap)
 	{
-		free(*ap);
-		*ap = NULL;
+		ft_error(WRONG_PARAMS);
+		return ;
 	}
+	free(*ap);
+	*ap = NULL;
 }

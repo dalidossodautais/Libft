@@ -5,21 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/27 05:19:37 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/27 05:19:43 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/26 13:40:18 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/26 13:40:19 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
+#include "libft.h"
 
-void	*ft_memalloc(size_t len)
+void	*ft_memalloc(size_t size)
 {
-	void	*a;
+	void	*new;
 
-	a = (void *)malloc(sizeof(a) * len);
-	if (a)
-		while (len-- > 0)
-			((char *)a)[len] = 0;
-	return (a);
+	if (!(new = malloc(size)))
+	{
+		ft_error(ERROR_ALLOC);
+		return (NULL);
+	}
+	ft_bzero(new, size);
+	return (new);
 }

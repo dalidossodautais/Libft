@@ -5,16 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/18 18:19:45 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/18 18:20:41 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/25 18:15:18 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/25 18:15:19 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_toupper(int a)
+int		ft_toupper(int c)
 {
-	if (ft_islower(a) == 1)
-		return (a - 32);
-	return (a);
+	return (ft_islower(c) ? c - 0x20 : c);
 }

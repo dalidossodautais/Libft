@@ -5,19 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/18 19:01:39 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/18 19:01:43 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/24 16:29:11 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/24 16:29:12 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen(const char *str)
 {
-	size_t	a;
+	size_t	len;
 
-	a = 0;
-	while (s[a])
-		a++;
-	return (a);
+	if (!str)
+	{
+		ft_error(WRONG_PARAMS);
+		return (0);
+	}
+	len = 0;
+	while (str[len])
+		++len;
+	return (len);
 }

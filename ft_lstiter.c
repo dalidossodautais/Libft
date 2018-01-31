@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/28 20:32:23 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/28 20:32:24 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/29 13:08:13 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/29 13:08:14 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,11 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	t_list	*tmp;
-
 	if (!lst || !f)
 		return ;
-	tmp = lst;
-	while (tmp->next)
+	while (lst)
 	{
-		f(tmp);
-		tmp = tmp->next;
+		f(lst);
+		lst = lst->next;
 	}
-	f(tmp);
 }

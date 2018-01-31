@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/28 15:49:12 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/28 15:49:25 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/24 11:15:54 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/24 11:15:55 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isblank(int a)
+#include "libft.h"
+
+int		ft_isblank(int c)
 {
-	if (a == ' ' || a == '	')
-		return (1);
-	return (0);
+	return (c == ' ' || c == '\t');
 }

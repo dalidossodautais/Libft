@@ -5,31 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/13 01:20:12 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/08/17 20:27:39 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/25 16:58:53 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/25 16:58:55 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-void	ft_putnbr(int nb)
+void	ft_putnbr(int n)
 {
-	if (nb == -2147483648)
-	{
-		ft_putstr("-2147483648");
-		return ;
-	}
-	if (nb < 0)
-	{
-		nb *= -1;
+	if (n < 0)
 		ft_putchar('-');
-	}
-	if (nb >= 10)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
-	if (nb < 10)
-		ft_putchar(nb + 48);
+	if (n >= 10 || n <= -10)
+		ft_putnbr(ft_absolute(n / 10));
+	ft_putchar(ft_absolute(n % 10) + '0');
 }

@@ -5,16 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/18 15:31:50 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/18 15:42:09 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/24 11:15:28 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/24 11:15:37 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalpha(int a)
+int		ft_isalpha(int c)
 {
-	if (ft_islower(a) || ft_isupper(a))
-		return (1);
-	return (0);
+	return (ft_islower(c) || ft_isupper(c));
 }

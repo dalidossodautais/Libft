@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 19:40:30 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/30 19:40:31 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/24 11:16:16 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/24 11:16:17 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_islower(int a)
+#include "libft.h"
+
+int		ft_islower(int c)
 {
-	if (a >= 'a' && a <= 'z')
-		return (1);
-	return (0);
+	return (ft_isbetween(c, 'a', 'z'));
 }

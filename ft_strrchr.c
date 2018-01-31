@@ -5,21 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/18 18:31:22 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/18 18:31:23 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/24 11:46:37 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/24 11:46:38 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strrchr(const char *s, int c)
-{
-	int a;
+#include "libft.h"
 
-	a = 0;
-	while (s[a])
-		a++;
-	while (a >= 0 && (int)s[a] != c)
-		a--;
-	if (a == -1)
+char	*ft_strrchr(const char *str, int c)
+{
+	size_t	i;
+
+	if (!str)
+	{
+		ft_error(WRONG_PARAMS);
 		return (0);
-	return ((char*)&s[a]);
+	}
+	i = ft_strlen(str) + 1;
+	while (i && str[--i] != c)
+		;
+	return (str[i] == c ? (char *)str + i : 0);
 }

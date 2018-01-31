@@ -5,25 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/28 15:02:19 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/28 15:03:05 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/25 16:58:41 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/25 16:58:43 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_puttab_fd(char **tab, int fd)
+void	ft_puttab_fd(const char **t, int fd)
 {
-	int a;
-	int b;
-
-	a = 0;
-	while (tab[a])
+	while (*t)
 	{
-		b = 0;
-		while (tab[a][b])
-			ft_putchar_fd(tab[a][b++], fd);
-		ft_putchar_fd('\n', fd);
-		a++;
+		ft_putendl_fd(*t, fd);
+		++t;
 	}
 }

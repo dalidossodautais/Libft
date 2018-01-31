@@ -5,20 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/13 13:07:59 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/08/16 18:06:42 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/26 13:30:22 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/26 13:30:23 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_power(int nb, int power)
+#include "libft.h"
+
+int		ft_power(int n, int p)
 {
-	if (power > 0)
-	{
-		power--;
-		return (nb) * ft_power(nb, power);
-	}
-	else if (power == 0)
-		return (1);
-	else
-		return (0);
+	return (p > 0 ? n * ft_power(n, p - 1) : !p);
 }

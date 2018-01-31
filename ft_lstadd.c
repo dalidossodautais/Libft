@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/28 20:42:37 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/28 20:42:39 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/29 13:07:20 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/29 13:07:22 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 void	ft_lstadd(t_list **alst, t_list *new)
 {
-	if (alst && new)
-	{
-		new->next = *alst;
-		*alst = new;
-	}
+	if (!alst || !new)
+		return ;
+	new->next = *alst;
+	*alst = new;
 }

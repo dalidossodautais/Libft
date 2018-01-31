@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/18 16:05:07 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/18 16:07:06 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/24 11:16:24 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/24 11:16:25 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isprint(int a)
+#include "libft.h"
+
+int		ft_isprint(int c)
 {
-	if (a >= 32 && a <= 126)
-		return (1);
-	return (0);
+	return (ft_isgraph(c) || c == ' ');
 }

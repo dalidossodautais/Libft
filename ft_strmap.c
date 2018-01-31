@@ -5,31 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 15:58:55 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/07 15:58:57 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/24 14:50:03 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/24 14:50:04 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char	*ft_strmap(char const *s, char (*f)(char))
+char	*ft_strmap(char const *str, char (*f)(char))
 {
-	int		a;
-	char	*str;
+	char	*new;
+	size_t	i;
 
-	if (s && f)
+	if (!str)
 	{
-		a = ft_strlen(s);
-		str = (char *)malloc(sizeof(*s) * (a + 1));
-		if (str)
-		{
-			a = -1;
-			while (s[++a])
-				str[a] = f(s[a]);
-			str[a] = '\0';
-			return (str);
-		}
+		ft_error(WRONG_PARAMS);
+		return (0);
 	}
-	return (0);
+	if (!(new = ft_strnew(ft_strlen(str))))
+		return (0);
+	i = 0;
+	while (str[i])
+	{
+		(new[i] = f(str[i]));
+		++i;
+	}
+	new[i] = '\0';
+	return (new);
 }

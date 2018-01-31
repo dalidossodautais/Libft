@@ -5,33 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/18 18:21:33 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/18 18:21:37 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/24 14:13:04 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/24 14:13:05 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(const char *s1, const char *s2)
-{
-	int a;
-	int b;
-	int c;
+#include "libft.h"
 
-	if (s1[0] == '\0' && s2[0] == '\0')
-		return (&((char *)s1)[0]);
-	a = 0;
-	while (s1[a])
+char	*ft_strstr(const char *mdf, const char *aig)
+{
+	size_t	i;
+
+	if (!mdf || !aig)
 	{
-		b = 0;
-		c = a;
-		while (s1[a] == s2[b] || !s2[b])
-		{
-			if (!s2[b])
-				return (&((char *)s1)[c]);
-			a++;
-			b++;
-		}
-		a = c;
-		a++;
+		ft_error(WRONG_PARAMS);
+		return (0);
+	}
+	if (!*aig)
+		return ((char *)mdf);
+	while (*mdf)
+	{
+		i = 0;
+		while (mdf[i] && aig[i] && mdf[i] == aig[i])
+			++i;
+		if (!aig[i])
+			return ((char *)mdf);
+		++mdf;
 	}
 	return (0);
 }

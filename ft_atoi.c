@@ -5,34 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/18 06:21:34 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/08/18 07:11:39 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/25 19:07:24 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/25 19:07:27 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int		ft_atoi(const char *s)
 {
-	int a;
-	int b;
-	int c;
-
-	a = 0;
-	b = 1;
-	c = 0;
-	while (s[a] == '\n' || s[a] == '\t' || s[a] == '\v' ||
-			s[a] == ' ' || s[a] == '\f' || s[a] == '\r')
-		a++;
-	if (s[a] == '-')
+	if (!s)
 	{
-		b = -1;
-		a++;
+		ft_error(WRONG_PARAMS);
+		return (0);
 	}
-	else if (s[a] == '+')
-		a++;
-	while (s[a] >= '0' && s[a] <= '9')
-	{
-		c = s[a] - '0' + c * 10;
-		a++;
-	}
-	return (b * c);
+	s = ft_skipis(s, &ft_isspace);
+	return (ft_atoui(s + ft_issign(*s)) * (*s == '-' ? -1 : 1));
 }

@@ -5,23 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/27 05:36:43 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/27 05:37:01 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/26 13:46:54 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/26 13:46:55 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void		*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t	a;
+	size_t	i;
 
-	a = 0;
-	while (a < n)
+	if (!s)
 	{
-		if (((char *)s)[a] == (char)c)
-			return (&((char *)s)[a]);
-		a++;
+		ft_error(WRONG_PARAMS);
+		return (0);
 	}
-	return (NULL);
+	i = 0;
+	while (i < n && ((unsigned char *)s)[i] != (unsigned char)c)
+		++i;
+	return (i < n ? (void *)(s + i) : 0);
 }

@@ -5,23 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/27 05:34:26 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/27 05:34:28 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/25 17:54:47 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/25 17:54:49 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	a;
+	size_t	i;
 
-	a = 0;
-	while (a < n)
+	if (!s1 || !s2)
 	{
-		if (((unsigned char *)s1)[a] != ((unsigned char *)s2)[a])
-			return (((unsigned char *)s1)[a] - ((unsigned char *)s2)[a]);
-		a++;
+		ft_error(WRONG_PARAMS);
+		return (0);
 	}
-	return (0);
+	i = 0;
+	while (i < n && ((unsigned char *)s1)[i] == ((unsigned char *)s2)[i])
+		++i;
+	return (i < n ? ((unsigned char *)s1)[i] - ((unsigned char *)s2)[i] : 0);
 }

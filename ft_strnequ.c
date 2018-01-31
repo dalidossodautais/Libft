@@ -5,27 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/18 18:50:56 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/18 18:51:03 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/24 14:21:14 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/24 14:21:15 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-int		ft_strnequ(char const *s1, char const *s2, size_t n)
+int		ft_strnequ(const char *s1, const char *s2, size_t n)
 {
-	size_t a;
-
-	a = 0;
-	if (s1 && s2)
-	{
-		while ((s1[a] || s2[a]) && a < n)
-		{
-			if (s1[a] != s2[a])
-				return (0);
-			a++;
-		}
-		return (1);
-	}
-	return (0);
+	return (!ft_strncmp(s1, s2, n));
 }

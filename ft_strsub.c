@@ -5,33 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/18 12:19:40 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/18 12:19:56 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/24 15:04:13 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/24 15:04:16 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
+#include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+char	*ft_strsub(const char *str, unsigned int start, size_t len)
 {
-	char	*str;
-	size_t	a;
+	char	*new;
+	size_t	i;
 
-	if (s)
+	if (!str)
 	{
-		str = (char *)malloc(sizeof(*str) * (len + 1));
-		if (!str)
-			return (NULL);
-		a = 0;
-		while (s[start] && a < len)
-		{
-			str[a] = s[start];
-			a++;
-			start++;
-		}
-		str[a] = '\0';
-		return (str);
+		ft_error(WRONG_PARAMS);
+		return (0);
 	}
-	return (0);
+	if (!(new = ft_strnew(len)))
+		return (0);
+	i = 0;
+	while (str[start + i] && i < len)
+		(new[i] = str[start + i]) && ++i;
+	new[i] = '\0';
+	return (new);
 }

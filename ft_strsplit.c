@@ -5,71 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 19:42:40 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/30 19:42:42 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/29 11:27:21 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/29 11:27:23 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-static int		ft_words(const char *s, char c)
+char	**ft_strsplit(const char *str, char c)
 {
-	int		a;
-	int		separations;
+	char	**aa;
+	size_t	i;
 
-	a = 0;
-	separations = 0;
-	while (*s != '\0')
+	if (!str)
 	{
-		if (separations == 1 && *s == c)
-			separations = 0;
-		if (separations == 0 && *s != c)
-		{
-			separations = 1;
-			a++;
-		}
-		s++;
-	}
-	return (a);
-}
-
-static int		ft_length(const char *s, char c)
-{
-	int		n;
-
-	n = 0;
-	while (*s != c && *s != '\0')
-	{
-		n++;
-		s++;
-	}
-	return (n);
-}
-
-char			**ft_strsplit(char const *s, char c)
-{
-	int		a;
-	int		nw;
-	char	**tab;
-
-	if (!s)
+		ft_error(WRONG_PARAMS);
 		return (NULL);
-	a = 0;
-	nw = ft_words((const char *)s, c);
-	tab = (char **)malloc(sizeof(*tab) * (nw + 1));
-	if (tab == NULL)
+	}
+	if (!(aa = ft_memalloc(sizeof(aa) * (ft_nbword(str, c) + 1))))
 		return (NULL);
-	while (nw--)
+	i = 0;
+	while (*(str = ft_skipchar(str, c)))
 	{
-		while (*s == c && *s != '\0')
-			s++;
-		tab[a] = ft_strsub((const char *)s, 0, ft_length((const char *)s, c));
-		if (tab[a] == NULL)
+		if (!(aa[i] = ft_strndup(str, ft_strclen(str, c))))
 			return (NULL);
-		s = s + ft_length(s, c);
-		a++;
+		(str += ft_strclen(str, c)) && ++i;
 	}
-	tab[a] = NULL;
-	return (tab);
+	aa[i] = NULL;
+	return (aa);
 }

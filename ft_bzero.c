@@ -5,15 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/04 16:10:07 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/07 15:53:12 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/25 17:50:54 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/25 17:50:55 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_bzero(void *mem, size_t n)
 {
-	while (n-- != 0)
-		((char *)s)[n] = '\0';
+	if (!mem)
+	{
+		ft_error(WRONG_PARAMS);
+		return ;
+	}
+	ft_memset(mem, 0, n);
 }

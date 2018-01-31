@@ -5,25 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/18 19:06:16 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/18 19:06:21 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/24 14:21:19 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/24 14:21:20 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strequ(char const *s1, char const *s2)
-{
-	int a;
+#include "libft.h"
 
-	a = 0;
-	if (s1 && s2)
-	{
-		while (s1[a] || s2[a])
-		{
-			if (s1[a] != s2[a])
-				return (0);
-			a++;
-		}
-		return (1);
-	}
-	return (0);
+int		ft_strequ(const char *s1, const char *s2)
+{
+	return (!ft_strcmp(s1, s2));
 }

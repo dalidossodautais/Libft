@@ -5,16 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/27 05:30:47 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/27 05:30:49 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/25 17:43:00 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/25 17:43:02 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void	*ft_memset(void *mem, int c, size_t n)
 {
-	while (n-- > 0)
-		((char *)s)[n] = (unsigned char)c;
-	return (s);
+	if (!mem)
+	{
+		ft_error(WRONG_PARAMS);
+		return (0);
+	}
+	while (n--)
+		((unsigned char *)mem)[n] = (unsigned char)c;
+	return (mem);
 }

@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/18 15:43:45 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/18 15:51:24 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/24 11:15:43 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/24 11:15:44 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isascii(int a)
+#include "libft.h"
+
+int		ft_isascii(int c)
 {
-	if (a >= 0 && a <= 127)
-		return (1);
-	return (0);
+	return (!(c >> 7));
 }

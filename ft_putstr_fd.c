@@ -5,19 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 16:07:26 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/30 22:04:26 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/25 16:16:10 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/25 16:16:12 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putstr_fd(char const *s, int fd)
+void	ft_putstr_fd(const char *s, int fd)
 {
-	int a;
-
-	a = 0;
-	if (s && fd)
-		while (s[a])
-			write(fd, &s[a++], 1);
+	write(fd, s, ft_strlen(s));
 }

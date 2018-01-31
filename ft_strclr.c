@@ -5,16 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/18 19:09:36 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/18 19:09:38 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/24 14:37:26 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/24 14:37:27 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_strclr(char *s)
-{
-	int a;
+#include "libft.h"
 
-	a = -1;
-	while (s && s[++a])
-		s[a] = '\0';
+void	ft_strclr(char *str)
+{
+	if (!str)
+	{
+		ft_error(WRONG_PARAMS);
+		return ;
+	}
+	ft_bzero(str, ft_strlen(str));
 }

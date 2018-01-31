@@ -5,26 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/27 05:28:01 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/27 05:28:03 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/26 12:32:10 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/26 12:32:11 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-void	*ft_memmove(void *des, void *src, size_t len)
+void	*ft_memmove(void *dst, void *src, size_t len)
 {
-	size_t		a;
+	size_t	i;
 
-	a = 0;
-	if (des > src)
-		while (len-- > 0)
-			((char *)des)[len] = ((char *)src)[len];
+	if (!dst || !src)
+	{
+		ft_error(WRONG_PARAMS);
+		return (0);
+	}
+	if (dst > src)
+		while (len--)
+			((unsigned char *)dst)[len] = ((unsigned char *)src)[len];
 	else
-		while (a < len)
-		{
-			((char *)des)[a] = ((char *)src)[a];
-			a++;
-		}
-	return (des);
+	{
+		i = 0;
+		while (i < len)
+			(((unsigned char *)dst)[i] = ((unsigned char *)src)[i]) && ++i;
+	}
+	return (dst);
 }

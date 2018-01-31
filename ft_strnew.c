@@ -5,26 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 15:58:55 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/07 15:58:57 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/24 14:27:56 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/24 14:27:57 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
+#include "libft.h"
 
 char	*ft_strnew(size_t size)
 {
-	char	*str;
-	size_t	a;
+	char	*new;
 
-	a = 0;
-	if (!(str = (char *)malloc(sizeof(*str) * (size + 1))))
-		return (0);
-	while (a <= size)
-	{
-		str[a] = '\0';
-		a++;
-	}
-	return (str);
+	if (!(new = ft_memalloc(size + 1)))
+		return (NULL);
+	return (new);
 }

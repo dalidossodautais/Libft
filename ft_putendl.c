@@ -5,16 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/18 19:32:46 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/30 22:07:48 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/25 17:00:22 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/25 17:00:24 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-void	ft_putendl(char const *s)
+void	ft_putendl(const char *s)
 {
 	ft_putstr(s);
-	write(1, "\n", 1);
+	ft_putchar('\n');
 }

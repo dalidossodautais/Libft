@@ -5,35 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/18 18:29:27 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/18 18:29:30 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/24 14:12:59 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/24 14:13:00 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	size_t	a;
-	size_t	b;
-	size_t	c;
+	size_t	i;
 
-	if (s1[0] == '\0' && s2[0] == '\0')
-		return (&((char *)s1)[0]);
-	a = 0;
-	while (s1[a] && a < n)
+	if (!s1 || !s2)
 	{
-		b = 0;
-		c = a;
-		while ((s1[a] == s2[b] && a < n) || !s2[b])
-		{
-			if (!s2[b])
-				return (&((char *)s1)[c]);
-			a++;
-			b++;
-		}
-		a = c;
-		a++;
+		ft_error(WRONG_PARAMS);
+		return (0);
 	}
-	return (NULL);
+	while (n-- && *s1)
+	{
+		i = 0;
+		while (i <= n && s1[i] && s2[i] && s1[i] == s2[i])
+			++i;
+		if (!s2[i])
+			return ((char *)s1);
+		++s1;
+	}
+	return (0);
 }

@@ -5,16 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/20 11:14:30 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/20 11:14:31 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/24 14:43:06 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/24 14:43:08 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void	ft_striter(char *s, void (*f)(char *))
 {
-	int a;
-
-	a = -1;
-	while (s && f && s[++a])
-		f(&s[a]);
+	if (!s || !f)
+		return ;
+	while (*s)
+		f(s++);
 }

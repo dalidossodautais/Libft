@@ -5,14 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 16:05:19 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/30 21:51:33 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/25 16:18:21 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/25 16:18:23 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, 1);
+	unsigned char t;
+
+	t = c;
+	write(fd, &t, 1);
 }

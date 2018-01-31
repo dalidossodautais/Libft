@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddosso-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/28 20:42:08 by ddosso-d          #+#    #+#             */
-/*   Updated: 2016/11/28 20:53:10 by ddosso-d         ###   ########.fr       */
+/*   Created: 2018/01/29 13:07:58 by ddosso-d          #+#    #+#             */
+/*   Updated: 2018/01/29 13:07:59 by ddosso-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
 	t_list	*tmp;
 
+	if (!alst || !del)
+		return ;
 	while (*alst)
 	{
 		tmp = *alst;
